@@ -1,0 +1,114 @@
+name: Skaner trendu – rozwinięty świat
+
+on:
+  schedule:
+    # pn–pt 22:17 UTC (po zamknięciu sesji w USA; minuta :17 zamiast pełnej godziny = mniejsze opóźnienia)
+    - cron: "17 22 * * 1-5"
+  workflow_dispatch:
+    inputs:
+      regions:
+        description: "Regiony po przecinku, np. pl,eu (puste = wszystkie)"
+        required: false
+        default: ""
+      force_universe:
+        description: "Odśwież listy spółek i flagi fundamentów mimo cache"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: skaner
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    outputs:
+      matrix: ${{ steps.m.outputs.matrix }}
+    steps:
+      - id: m
+        env:
+          REGIONS_IN: ${{ inputs.regions }}
+        run: |
+          ALL='["us","ca","uk","eu","nordic","jp","apac","pl"]'
+          if [ -n "$REGIONS_IN" ]; then
+            R=$(python3 -c "import os,json;print(json.dumps([x.strip() for x in os.environ['REGIONS_IN'].split(',') if x.strip()]))")
+          else
+            R="$ALL"
+          fi
+          echo "matrix=$R" >> "$GITHUB_OUTPUT"
+          echo "Regiony: $R"
+
+  region:
+    needs: plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 150
+    strategy:
+      fail-fast: false
+      max-parallel: 4          # każdy region na osobnej maszynie (zwykle osobne IP) – mniej blokad Yahoo
+      matrix:
+        region: ${{ fromJson(needs.plan.outputs.matrix) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Skan regionu ${{ matrix.region }}
+        run: python run_region.py --region ${{ matrix.region }} ${{ inputs.force_universe && '--force-universe' || '' }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: region-${{ matrix.region }}
+          path: |
+            output/
+            data/universe/${{ matrix.region }}.csv
+          if-no-files-found: ignore
+          retention-days: 14
+
+  aggregate:
+    needs: region
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: region-*
+          path: art
+      - name: Zebranie wyników regionów
+        run: |
+          mkdir -p output data/universe
+          for d in art/region-*; do
+            cp -r "$d"/output/* output/ 2>/dev/null || true
+            cp "$d"/data/universe/*.csv data/universe/ 2>/dev/null || true
+          done
+          ls -la output
+      - name: Arkusz zbiorczy
+        run: python aggregate.py
+      - name: Google Sheets (opcjonalnie)
+        env:
+          GOOGLE_SA_JSON: ${{ secrets.GOOGLE_SA_JSON }}
+          SHEET_ID: ${{ secrets.SHEET_ID }}
+        run: python push_sheets.py
+      - name: Zapis wyników w repozytorium
+        run: |
+          git config user.name  "skaner-bot"
+          git config user.email "skaner-bot@users.noreply.github.com"
+          git add results data/universe
+          git commit -m "Skan $(date -u +%Y-%m-%d)" || echo "Brak zmian"
+          git push
+      - uses: actions/upload-artifact@v4
+        with:
+          name: SKANER_GLOBALNY
+          path: results/
+          retention-days: 30
