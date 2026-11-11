@@ -66,6 +66,7 @@ def main():
         sys.exit("Brak notowań – Yahoo zablokowało zapytania albo lista jest pusta.")
 
     meta = uni.set_index("Ticker")
+    min_turn = rcfg.get("min_turnover_usd", CFG["min_turnover_usd"])
     rows, sums = [], []
     for t, df in prices.items():
         m = meta.loc[t]
@@ -75,13 +76,15 @@ def main():
             df[["Open", "High", "Low", "Close"]] = df[["Open", "High", "Low", "Close"]] / div
         f = features(df)
         rate = fx.get(m["Waluta gł."], np.nan)
-        rows.append(snapshot(t, df, f, rate if pd.notna(rate) else 1.0))
-        sums.append(backtest_sums({t: f[["close", "phase", "wst21", "sma_l"]]}))
+        snap = snapshot(t, df, f, rate if pd.notna(rate) else 1.0)
+        rows.append(snap)
+        # backtest tylko na spółkach płynnych (niepłynne i błędy danych zawyżają średnie)
+        if snap["Kurs (USD)"] >= CFG["min_price_usd"] and (snap["Obrót 50s (USD)"] or 0) >= min_turn:
+            sums.append(backtest_sums({t: f[["close", "phase", "wst21", "sma_l"]]}))
 
     rk = pd.DataFrame(rows).merge(
         uni.drop(columns=["_div"]).rename(columns={"Waluta gł.": "Waluta (gł.)"}), on="Ticker", how="left")
     rk["Region"] = region
-    min_turn = rcfg.get("min_turnover_usd", CFG["min_turnover_usd"])
     rk["Płynna"] = np.where((rk["Kurs (USD)"] >= CFG["min_price_usd"]) & (rk["Obrót 50s (USD)"] >= min_turn), "tak", "nie")
 
     flags = rk[[c for c in FLAG_COLS if c in rk]]
@@ -118,11 +121,12 @@ def main():
         "% spółek nad SMA200": (base["Odl. od SMA200"] > 0).mean(),
         "% w fazie Zapłon": ph.get("1 Zapłon", 0.0), "% w fazie Rozpęd": ph.get("2 Rozpęd", 0.0),
         "% w trendzie dojrzałym": ph.get("3 Trend dojrzały", 0.0), "% przegrzanych": ph.get("4 Przegrzanie", 0.0),
-        "Mediana WST": base["WST"].median(), "Śr. Ocena TOP20": cand["Ocena"].head(20).mean(),
+        "% spółek WST≥60": (base["WST"] >= 60).mean(),
+        "Mediana WST (w trendzie)": base.loc[base["WST"] > 0, "WST"].median(), "Śr. Ocena TOP20": cand["Ocena"].head(20).mean(),
         "Data notowań": str(rk["Data notowania"].max()), "Wygenerowano": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d %H:%M UTC"),
     }])
 
-    bts = pd.concat(sums, ignore_index=True).groupby(["Faza", "Podgrupa", "Horyzont"], as_index=False)[["n", "suma", "trafienia"]].sum()
+    bts = pd.concat(sums or [pd.DataFrame(columns=["Faza", "Podgrupa", "Horyzont", "n", "suma", "trafienia"])], ignore_index=True).groupby(["Faza", "Podgrupa", "Horyzont"], as_index=False)[["n", "suma", "trafienia"]].sum()
     bt = backtest_table(bts)
 
     os.makedirs(a.out_dir, exist_ok=True)

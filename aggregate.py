@@ -36,7 +36,7 @@ def md_table(df: pd.DataFrame, cols: list[str]) -> str:
         if pd.isna(v):
             return ""
         if c in ("Zwrot kwartał", "Odl. od SMA50", "ROE", "Marża netto", "% spółek SMA20>SMA50", "% spółek nad SMA200",
-                 "% w fazie Zapłon", "% w fazie Rozpęd"):
+                 "% w fazie Zapłon", "% w fazie Rozpęd", "% spółek WST≥60"):
             return f"{v:.0%}"
         if isinstance(v, float):
             return f"{v:.1f}"
@@ -70,7 +70,7 @@ def main():
     ign = ign.sort_values(["Fundamenty (0–100)", "WST 21s (start)"], ascending=False)[view].head(100)
     mom = liq[liq["Faza"] == "2 Rozpęd"].sort_values("Ocena", ascending=False)[view].head(100)
     per_region = good.groupby("Region", group_keys=False).head(15)[view]
-    klimat = klimat.sort_values("Mediana WST", ascending=False)
+    klimat = klimat.sort_values("% spółek WST≥60", ascending=False)
 
     today = dt.date.today().isoformat()
     note = (f"Regiony: {', '.join(present)}" + (f" | BRAK DANYCH: {', '.join(missing)}" if missing else "")
@@ -89,7 +89,7 @@ def main():
             ("Płynna", f"Kurs ≥ {CFG['min_price_usd']} USD i średni obrót 50 sesji ≥ {CFG['min_turnover_usd']:,} USD (GPW: niższy próg).".replace(",", " ")),
             ("Zapłon – lista", "Faza 1 Zapłon, WST 21s ≥ 60, Fundamenty ≥ 50, tylko płynne."),
             ("Klimat rynku", "Szerokość rynku: jaki odsetek płynnych spółek regionu jest w trendzie. Niska = ostrożność z nowymi pozycjami."),
-            ("Backtest", "Zdarzenie = pierwszy dzień wejścia w fazę, zwroty po 5/20/63 sesjach. Sygnał ma wartość, gdy bije wiersz BAZA."),
+            ("Backtest", "Tylko spółki płynne. Zdarzenie = pierwszy dzień wejścia w fazę, zwroty po 5/20/63 sesjach przycięte do [-80%, +100%]. Sygnał ma wartość, gdy bije wiersz BAZA."),
             ("Ograniczenia", "Dane Yahoo (nieoficjalne), brak kosztów transakcyjnych, lista spółek z dziś (survivorship bias), fundamenty bieżące."),
         ], columns=["Pojęcie", "Definicja"])
 
@@ -111,7 +111,7 @@ def main():
         if os.path.exists(src):
             shutil.copy(src, f"{a.out_dir}/regiony/{r}.xlsx")
 
-    kcols = ["Nazwa regionu", "Płynnych", "% spółek SMA20>SMA50", "% spółek nad SMA200", "% w fazie Zapłon", "Mediana WST"]
+    kcols = ["Nazwa regionu", "Płynnych", "% spółek SMA20>SMA50", "% spółek nad SMA200", "% spółek WST≥60", "% w fazie Zapłon"]
     tcols = ["Region", "Ticker", "Nazwa", "Faza", "Ocena", "WST", "Fundamenty (0–100)", "Wiek trendu (sesje)", "Zwrot kwartał"]
     icols = ["Region", "Ticker", "Nazwa", "WST 21s (start)", "Fundamenty (0–100)", "Wiek trendu (sesje)"]
     md = [f"# Skaner trendu – {today}" + (" (DEMO)" if demo else ""), "", note, "",

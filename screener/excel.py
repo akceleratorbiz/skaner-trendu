@@ -9,10 +9,10 @@ PCT_COLS = {
     "Momentum Clenow", "Max obsunięcie (kw.)", "Odl. od SMA50", "Odl. od SMA200", "Marża netto",
     "Marża operacyjna", "ROE", "Wzrost przychodów r/r", "Wzrost zysku r/r",
     "% spółek SMA20>SMA50", "% spółek nad SMA200", "% w fazie Zapłon", "% w fazie Rozpęd",
-    "% w trendzie dojrzałym", "% przegrzanych",
+    "% w trendzie dojrzałym", "% przegrzanych", "% spółek WST≥60",
 }
 NUM2 = {"R² log-ceny (kw.)", "Efficiency Ratio (kw.)"}
-NUM1 = {"P/S", "P/E", "Fwd P/E", "Dług/Kapitał (%)", "Kapitalizacja (mld lok.)", "Mediana WST", "Śr. Ocena TOP20"}
+NUM1 = {"P/S", "P/E", "Fwd P/E", "Dług/Kapitał (%)", "Kapitalizacja (mld lok.)", "Mediana WST (w trendzie)", "Śr. Ocena TOP20"}
 INT_SEP = {"Obrót 50s (USD)"}
 PHASE_FILL = {
     "1 Zapłon": "C6EFCE", "2 Rozpęd": "A9D08E", "3 Trend dojrzały": "DDEBF7",

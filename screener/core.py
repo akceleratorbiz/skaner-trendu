@@ -111,7 +111,8 @@ def backtest_sums(feats: dict[str, pd.DataFrame]) -> pd.DataFrame:
         f = f.iloc[warm:]
         if f.empty:
             continue
-        fwd = {h: f["close"].shift(-h) / f["close"] - 1 for h in CFG["fwd"]}
+        # zwroty przycięte do [-80%, +100%] – pojedyncze błędy danych nie zdominują średnich
+        fwd = {h: (f["close"].shift(-h) / f["close"] - 1).clip(-0.8, 1.0) for h in CFG["fwd"]}
         entry = f["phase"] != f["phase"].shift()
         wst21_bucket = pd.cut(f["wst21"], [-0.1, 40, 60, 80, 100.1], labels=["<40", "40–60", "60–80", "≥80"])
         above200 = np.where(f["close"] > f["sma_l"], "kurs>SMA200", "kurs≤SMA200")
