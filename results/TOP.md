@@ -1,75 +1,75 @@
-# Skaner trendu – 2026-11-21
+# Skaner trendu – 2026-11-24
 
-Regiony: apac, ca, eu, jp, nordic, pl, uk, us | spółek w skanie: 11 659 | płynnych: 7 031
+Regiony: apac, ca, eu, jp, nordic, pl, uk, us | spółek w skanie: 11 661 | płynnych: 7 014
 
 ## Klimat rynku
 | Nazwa regionu | Płynnych | % spółek SMA20>SMA50 | % spółek nad SMA200 | % spółek WST≥60 | % w fazie Zapłon |
 |---|---|---|---|---|---|
-| Polska | 90 | 47% | 57% | 20% | 2% |
-| Skandynawia | 334 | 60% | 66% | 19% | 10% |
-| Europa kontynentalna | 603 | 61% | 55% | 14% | 8% |
-| Wielka Brytania | 453 | 59% | 53% | 12% | 4% |
-| Japonia | 1419 | 39% | 40% | 9% | 5% |
-| Kanada | 340 | 47% | 35% | 6% | 2% |
-| Azja-Pacyfik + Izrael | 1031 | 35% | 27% | 6% | 5% |
-| USA | 2761 | 54% | 39% | 6% | 4% |
+| Polska | 89 | 47% | 57% | 18% | 1% |
+| Skandynawia | 331 | 60% | 59% | 18% | 6% |
+| Europa kontynentalna | 602 | 61% | 49% | 13% | 4% |
+| Wielka Brytania | 453 | 58% | 49% | 11% | 2% |
+| Japonia | 1421 | 38% | 42% | 9% | 4% |
+| Kanada | 340 | 46% | 39% | 8% | 3% |
+| USA | 2763 | 54% | 44% | 7% | 5% |
+| Azja-Pacyfik + Izrael | 1015 | 36% | 27% | 6% | 5% |
 
 ## TOP 30 globalnie
 | Region | Ticker | Nazwa | Faza | Ocena | WST | Fundamenty (0–100) | Wiek trendu (sesje) | Zwrot kwartał |
 |---|---|---|---|---|---|---|---|---|
-| us | MKTX | MarketAxess Holdings Inc. | 3 Trend dojrzały | 99.3 | 98.8 | 100 | 79 | 2% |
-| pl | LPP.WA | LPP SA | 3 Trend dojrzały | 98.5 | 97.5 | 100 | 78 | 41% |
-| nordic | APOTEA.ST | Apotea AB (publ) | 3 Trend dojrzały | 96.1 | 93.5 | 100 | 55 | 38% |
-| nordic | ORNBV.HE | Orion Oyj | 3 Trend dojrzały | 95.0 | 91.6 | 100 | 101 | 29% |
-| nordic | HLUN-B.CO | H. Lundbeck A/S | 3 Trend dojrzały | 94.8 | 91.4 | 100 | 55 | 49% |
-| us | IBEX | IBEX Limited | 3 Trend dojrzały | 94.2 | 90.4 | 100 | 138 | 47% |
-| us | CRVL | CorVel Corporation | 3 Trend dojrzały | 93.3 | 88.9 | 100 | 69 | 24% |
-| ca | NWC.TO | The North West Company Inc. | 3 Trend dojrzały | 92.2 | 87.0 | 100 | 44 | 20% |
-| eu | NWL.MI | NewPrinces S.p.A. | 3 Trend dojrzały | 92.1 | 86.9 | 100 | 46 | 61% |
-| nordic | SHOT.ST | Scandic Hotels Group AB (publ) | 3 Trend dojrzały | 91.8 | 86.4 | 100 | 60 | 22% |
-| eu | SOON.SW | Sonova Holding AG | 3 Trend dojrzały | 91.7 | 86.2 | 100 | 128 | 21% |
-| uk | ROR.L | Rotork plc | 2 Rozpęd | 91.1 | 85.2 | 100 | 34 | 2% |
-| us | OPCH | Option Care Health, Inc. | 2 Rozpęd | 90.8 | 84.6 | 100 | 34 | 33% |
-| uk | GRG.L | Greggs plc | 2 Rozpęd | 90.3 | 83.9 | 100 | 31 | 30% |
-| jp | 7839.T | Shoei Co., Ltd. | 3 Trend dojrzały | 89.8 | 83.0 | 100 | 143 | 20% |
-| apac | ELAL.TA | El Al Israel Airlines Ltd. | 3 Trend dojrzały | 89.7 | 82.9 | 100 | 99 | 33% |
-| us | ASO | Academy Sports and Outdoors, Inc. | 3 Trend dojrzały | 89.7 | 82.9 | 100 | 42 | 52% |
-| us | CON | Concentra Group Holdings Parent, Inc. | 3 Trend dojrzały | 89.3 | 82.2 | 100 | 141 | 20% |
-| uk | AT.L | Ashtead Technology Holdings Plc | 2 Rozpęd | 89.3 | 82.1 | 100 | 36 | 76% |
-| jp | 7832.T | BANDAI NAMCO Holdings Inc. | 3 Trend dojrzały | 88.7 | 81.2 | 100 | 93 | 33% |
-| nordic | DEMANT.CO | Demant A/S | 3 Trend dojrzały | 88.5 | 80.9 | 100 | 153 | 20% |
-| us | CLMB | Climb Global Solutions, Inc. | 3 Trend dojrzały | 88.5 | 80.9 | 100 | 118 | 46% |
-| apac | 3306.HK | JNBY Design Limited | 3 Trend dojrzały | 88.3 | 80.5 | 100 | 80 | 22% |
-| jp | 9766.T | Konami Group Corporation | 3 Trend dojrzały | 88.2 | 80.4 | 100 | 76 | 39% |
-| us | BOX | Box, Inc. | 3 Trend dojrzały | 88.1 | 80.2 | 100 | 137 | 31% |
-| us | AES | The AES Corporation | 3 Trend dojrzały | 88.0 | 96.6 | 75 | 139 | 3% |
-| uk | 0NOF.L | The Procter & Gamble Company | 3 Trend dojrzały | 87.9 | 79.9 | 100 | 42 | 18% |
-| uk | TBTG.L | The Beauty Tech Group plc | 3 Trend dojrzały | 87.5 | 79.1 | 100 | 42 | 49% |
-| us | ADMA | ADMA Biologics, Inc. | 3 Trend dojrzały | 87.2 | 78.7 | 100 | 95 | 38% |
-| jp | 3064.T | MonotaRO Co., Ltd. | 2 Rozpęd | 87.2 | 78.6 | 100 | 39 | 32% |
+| us | MKTX | MarketAxess Holdings Inc. | 3 Trend dojrzały | 99.3 | 98.8 | 100 | 80 | 2% |
+| jp | 7552.T | Happinet Corporation | 3 Trend dojrzały | 98.5 | 97.5 | 100 | 111 | 94% |
+| pl | LPP.WA | LPP SA | 3 Trend dojrzały | 96.2 | 93.7 | 100 | 79 | 37% |
+| us | IBEX | IBEX Limited | 3 Trend dojrzały | 95.6 | 92.7 | 100 | 139 | 52% |
+| nordic | APOTEA.ST | Apotea AB (publ) | 3 Trend dojrzały | 95.2 | 92.0 | 100 | 56 | 34% |
+| nordic | ORNBV.HE | Orion Oyj | 3 Trend dojrzały | 94.1 | 90.2 | 100 | 102 | 26% |
+| nordic | HLUN-B.CO | H. Lundbeck A/S | 3 Trend dojrzały | 93.9 | 89.9 | 100 | 56 | 42% |
+| eu | SOON.SW | Sonova Holding AG | 3 Trend dojrzały | 93.4 | 89.0 | 100 | 130 | 22% |
+| ca | NWC.TO | The North West Company Inc. | 3 Trend dojrzały | 92.7 | 87.8 | 100 | 45 | 21% |
+| us | CRVL | CorVel Corporation | 3 Trend dojrzały | 92.5 | 87.5 | 100 | 70 | 23% |
+| eu | NWL.MI | NewPrinces S.p.A. | 3 Trend dojrzały | 92.1 | 86.9 | 100 | 47 | 59% |
+| us | ASO | Academy Sports and Outdoors, Inc. | 3 Trend dojrzały | 91.6 | 86.0 | 100 | 43 | 60% |
+| us | CON | Concentra Group Holdings Parent, Inc. | 3 Trend dojrzały | 91.4 | 85.6 | 100 | 142 | 24% |
+| apac | ELAL.TA | El Al Israel Airlines Ltd. | 3 Trend dojrzały | 91.3 | 85.5 | 100 | 100 | 39% |
+| uk | ROR.L | Rotork plc | 2 Rozpęd | 90.8 | 84.6 | 100 | 35 | 2% |
+| us | OPCH | Option Care Health, Inc. | 2 Rozpęd | 90.7 | 84.5 | 100 | 35 | 34% |
+| us | CLMB | Climb Global Solutions, Inc. | 3 Trend dojrzały | 90.5 | 84.2 | 100 | 119 | 57% |
+| us | BOX | Box, Inc. | 3 Trend dojrzały | 90.5 | 84.1 | 100 | 138 | 38% |
+| jp | 7839.T | Shoei Co., Ltd. | 3 Trend dojrzały | 90.3 | 83.8 | 100 | 144 | 21% |
+| nordic | SHOT.ST | Scandic Hotels Group AB (publ) | 3 Trend dojrzały | 89.7 | 82.8 | 100 | 61 | 18% |
+| uk | BME.L | B&M European Value Retail plc | 3 Trend dojrzały | 89.6 | 82.6 | 100 | 120 | 41% |
+| uk | AT.L | Ashtead Technology Holdings Plc | 2 Rozpęd | 89.4 | 82.3 | 100 | 37 | 71% |
+| uk | GRG.L | Greggs plc | 2 Rozpęd | 89.2 | 82.0 | 100 | 32 | 27% |
+| pl | ALE.WA | Allegro.eu S.A. | 3 Trend dojrzały | 88.8 | 98.0 | 75 | 149 | 44% |
+| apac | 3306.HK | JNBY Design Limited | 3 Trend dojrzały | 88.6 | 81.0 | 100 | 82 | 24% |
+| jp | 9766.T | Konami Group Corporation | 3 Trend dojrzały | 88.6 | 81.0 | 100 | 77 | 38% |
+| nordic | DEMANT.CO | Demant A/S | 3 Trend dojrzały | 88.6 | 81.0 | 100 | 154 | 21% |
+| us | OSPN | OneSpan Inc. | 3 Trend dojrzały | 88.6 | 81.0 | 100 | 152 | 50% |
+| uk | 0NOF.L | The Procter & Gamble Company | 3 Trend dojrzały | 88.5 | 80.8 | 100 | 43 | 17% |
+| jp | 7832.T | BANDAI NAMCO Holdings Inc. | 3 Trend dojrzały | 88.3 | 80.5 | 100 | 94 | 31% |
 
 ## Zapłon – świeże starty z jakością
 | Region | Ticker | Nazwa | WST 21s (start) | Fundamenty (0–100) | Wiek trendu (sesje) |
 |---|---|---|---|---|---|
-| apac | 0300.HK | Midea Group Co., Ltd. | 97.3 | 100 | 7 |
-| us | LNTH | Lantheus Holdings, Inc. | 94.7 | 100 | 10 |
-| apac | SPK.NZ | Spark New Zealand Limited | 92.8 | 100 | 5 |
-| nordic | PROT.OL | Protector Forsikring ASA | 92.8 | 100 | 10 |
-| eu | FGR.PA | Eiffage SA | 92.4 | 100 | 3 |
-| apac | SPK.AX | Spark New Zealand Limited | 92.3 | 100 | 6 |
-| apac | 0293.HK | Cathay Pacific Airways Limited | 88.5 | 100 | 5 |
-| eu | PHN.MI | Pharmanutra S.p.A. | 87.3 | 100 | 5 |
-| nordic | SATS.OL | Sats ASA | 86.3 | 100 | 9 |
-| apac | 326030.KS | SK Biopharmaceuticals Co., Ltd. | 85.8 | 100 | 7 |
-| eu | AF.PA | Air France-KLM SA | 85.7 | 100 | 6 |
-| us | CMG | Chipotle Mexican Grill, Inc. | 84.8 | 100 | 4 |
-| eu | NOS.LS | NOS, S.G.P.S., S.A. | 84.2 | 100 | 7 |
-| nordic | FIA1S.HE | Finnair Oyj | 84.0 | 100 | 7 |
-| uk | MGNS.L | Morgan Sindall Group plc | 83.5 | 100 | 5 |
-| apac | 1364.HK | Guming Holdings Limited | 82.9 | 100 | 5 |
-| apac | 272450.KS | Jin Air Co., Ltd. | 81.7 | 100 | 8 |
-| apac | QAN.AX | Qantas Airways Limited | 81.5 | 100 | 7 |
-| us | ALH | Alliance Laundry Holdings Inc. | 81.2 | 100 | 10 |
-| eu | SPIE.PA | SPIE SA | 80.7 | 100 | 7 |
+| apac | 0300.HK | Midea Group Co., Ltd. | 95.2 | 100 | 9 |
+| nordic | SATS.OL | Sats ASA | 90.3 | 100 | 10 |
+| apac | SPK.AX | Spark New Zealand Limited | 89.7 | 100 | 8 |
+| eu | FGR.PA | Eiffage SA | 89.6 | 100 | 4 |
+| eu | PHN.MI | Pharmanutra S.p.A. | 89.2 | 100 | 6 |
+| eu | AF.PA | Air France-KLM SA | 86.5 | 100 | 7 |
+| apac | 0293.HK | Cathay Pacific Airways Limited | 86.1 | 100 | 7 |
+| eu | NOS.LS | NOS, S.G.P.S., S.A. | 85.5 | 100 | 8 |
+| apac | SPK.NZ | Spark New Zealand Limited | 85.1 | 100 | 7 |
+| nordic | FIA1S.HE | Finnair Oyj | 84.4 | 100 | 8 |
+| us | CMG | Chipotle Mexican Grill, Inc. | 84.3 | 100 | 5 |
+| jp | 4343.T | AEON Fantasy Co.,LTD. | 83.7 | 100 | 10 |
+| us | PRG | PROG Holdings, Inc. | 82.2 | 100 | 9 |
+| jp | 6062.T | Charm Care Corporation | 81.7 | 100 | 10 |
+| apac | 272450.KS | Jin Air Co., Ltd. | 81.6 | 100 | 10 |
+| apac | QAN.AX | Qantas Airways Limited | 81.3 | 100 | 9 |
+| us | EVC | Entravision Communications Corporation | 79.9 | 100 | 6 |
+| apac | 6823.HK | HKT Trust and HKT Limited | 79.0 | 100 | 4 |
+| us | REZI | Resideo Technologies, Inc. | 78.2 | 100 | 9 |
+| apac | 2282.HK | MGM China Holdings Limited | 77.8 | 100 | 6 |
 
 Pełne dane: `SKANER_GLOBALNY.xlsx` i `regiony/`. Materiał analityczny, nie rekomendacja.
